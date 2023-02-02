@@ -62,7 +62,20 @@ public class MainActivity extends AppCompatActivity {
         adb.setMultiChoiceItems(colors, null, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i, boolean b) {
-                
+                if(b)
+                {
+                    color[i] = 255;
+                }
+                else if(color[i] == 255)
+                {
+                    color[i] = 0;
+                }
+            }
+        });
+        adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                LL.setBackgroundColor(Color.rgb(color[0], color[1], color[2]));
             }
         });
         window1 = adb.create();
