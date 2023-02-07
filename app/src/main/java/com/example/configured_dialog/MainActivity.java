@@ -1,11 +1,15 @@
 package com.example.configured_dialog;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -23,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout LL;
 
+    Intent si;
+
     int[] color;
 
     final String[] colors = {"Red", "Green", "Blue"};
@@ -35,7 +41,20 @@ public class MainActivity extends AppCompatActivity {
         adb1 = new AlertDialog.Builder(this);
         adb2 = new AlertDialog.Builder(this);
         LL = findViewById(R.id.mainLayout);
+        si = new Intent(this, credits.class);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        startActivity(si);
+        return true;
     }
 
     public void albert1(View view) {
