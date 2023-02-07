@@ -73,7 +73,7 @@
             android:layout_height="match_parent"
             android:layout_weight="7"
             android:onClick="albert3"
-            android:text="Button3" />
+            android:text="Reset" />
 
         <Space
             android:layout_width="0dp"

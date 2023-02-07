@@ -7,13 +7,19 @@ import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     AlertDialog.Builder adb;
 
-    AlertDialog window1;
+    AlertDialog.Builder adb1;
+
+    AlertDialog.Builder adb2;
+
+
 
     LinearLayout LL;
 
@@ -26,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         adb = new AlertDialog.Builder(this);
+        adb1 = new AlertDialog.Builder(this);
+        adb2 = new AlertDialog.Builder(this);
         LL = findViewById(R.id.mainLayout);
 
     }
@@ -46,20 +54,20 @@ public class MainActivity extends AppCompatActivity {
                 LL.setBackgroundColor(Color.rgb(color[0], color[1], color[2]));
             }
         });
-        window1 = adb.create();
+        AlertDialog window1 = adb.create();
         window1.show();
     }
 
     public void albert2(View view) {
         color = new int[]{0, 0, 0};
 
-        adb.setNegativeButton("Close", new DialogInterface.OnClickListener() {
+        adb1.setNegativeButton("Close", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dialogInterface.cancel();
             }
         });
-        adb.setMultiChoiceItems(colors, null, new DialogInterface.OnMultiChoiceClickListener() {
+        adb1.setMultiChoiceItems(colors, null, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i, boolean b) {
                 if(b)
@@ -72,19 +80,33 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        adb.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        adb1.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 LL.setBackgroundColor(Color.rgb(color[0], color[1], color[2]));
             }
         });
-        window1 = adb.create();
+        AlertDialog window1 = adb1.create();
         window1.show();
     }
 
     public void albert3(View view) {
+        LL.setBackgroundColor(Color.WHITE);
     }
 
     public void albert4(View view) {
+        adb2.setTitle("EditText");
+        final EditText input = new EditText(this);
+        input.setHint("Input here");
+        adb2.setView(input);
+        adb2.setPositiveButton("read", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                String str = input.getText().toString();
+                Toast.makeText(MainActivity.this, "The input is: " + str, Toast.LENGTH_SHORT).show();
+            }
+        });
+        AlertDialog window1 = adb2.create();
+        window1.show();
     }
 }
