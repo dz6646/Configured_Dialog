@@ -15,22 +15,45 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * The Adb.
+     */
     AlertDialog.Builder adb;
 
+    /**
+     * The Adb 1.
+     */
     AlertDialog.Builder adb1;
 
+    /**
+     * The Adb 2.
+     */
     AlertDialog.Builder adb2;
 
 
-
+    /**
+     * The Ll.
+     */
     LinearLayout LL;
 
+    /**
+     * The Si.
+     */
     Intent si;
 
+    /**
+     * The Color.
+     */
     int[] color;
 
+    /**
+     * The Colors.
+     */
     final String[] colors = {"Red", "Green", "Blue"};
 
     @Override
@@ -57,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Albert 1.
+     * the first button onClick
+     * @param view the view
+     */
     public void albert1(View view) {
         color = new int[]{0, 0, 0};
 
@@ -77,6 +105,11 @@ public class MainActivity extends AppCompatActivity {
         window1.show();
     }
 
+    /**
+     * Albert 2.
+     * the second button onClick
+     * @param view the view
+     */
     public void albert2(View view) {
         color = new int[]{0, 0, 0};
 
@@ -109,10 +142,20 @@ public class MainActivity extends AppCompatActivity {
         window1.show();
     }
 
+    /**
+     * Albert 3.
+     * the third button onClick
+     * @param view the view
+     */
     public void albert3(View view) {
         LL.setBackgroundColor(Color.WHITE);
     }
 
+    /**
+     * Albert 4.
+     * the fourth button onClick
+     * @param view the view
+     */
     public void albert4(View view) {
         adb2.setTitle("EditText");
         final EditText input = new EditText(this);
